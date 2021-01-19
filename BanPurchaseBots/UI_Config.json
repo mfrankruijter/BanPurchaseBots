@@ -1,0 +1,66 @@
+{
+    "output_file": "settings.json",
+    "BannedLineContains1": {
+        "type": "textbox",
+        "value": "wanna become famous? buy followers, primes and viewers on",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains2": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains3": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains4": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains5": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains6": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains7": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains8": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    },
+    "BannedLineContains9": {
+        "type": "textbox",
+        "value": "",
+        "label": "Banned text",
+        "tooltip": "The banned message.",
+        "group": "Contains"
+    }
+  }
