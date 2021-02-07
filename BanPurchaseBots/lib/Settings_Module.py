@@ -7,6 +7,17 @@ class MySettings(object):
 		try:
 			with codecs.open(settingsfile, encoding="utf-8-sig", mode="r") as f:
 				self.__dict__ = json.load(f, encoding="utf-8")
+			self.BannedLineContains = [
+				self.BannedLineContains1,
+				self.BannedLineContains2,
+				self.BannedLineContains3,
+				self.BannedLineContains4,
+				self.BannedLineContains5,
+				self.BannedLineContains6,
+				self.BannedLineContains7,
+				self.BannedLineContains8,
+				self.BannedLineContains9
+			]
 		except:
 			self.BannedLineContains1 = "wanna become famous? buy followers, primes and viewers on"
 			self.BannedLineContains2 = ""
@@ -17,18 +28,20 @@ class MySettings(object):
 			self.BannedLineContains7 = ""
 			self.BannedLineContains8 = ""
 			self.BannedLineContains9 = ""
-
-		self.BannedLineContains = [
-			self.BannedLineContains1,
-			self.BannedLineContains2,
-			self.BannedLineContains3,
-			self.BannedLineContains4,
-			self.BannedLineContains5,
-			self.BannedLineContains6,
-			self.BannedLineContains7,
-			self.BannedLineContains8,
-			self.BannedLineContains9
-		]
+			self.PublishToDiscord = "No"
+			self.PublishToDiscordUsername = ""
+			self.PublishToDiscordFormat = "Just the username"
+			self.BannedLineContains = [
+				self.BannedLineContains1,
+				self.BannedLineContains2,
+				self.BannedLineContains3,
+				self.BannedLineContains4,
+				self.BannedLineContains5,
+				self.BannedLineContains6,
+				self.BannedLineContains7,
+				self.BannedLineContains8,
+				self.BannedLineContains9
+			]
 
 	def Reload(self, jsondata):
 		self.__dict__ = json.loads(jsondata, encoding="utf-8")

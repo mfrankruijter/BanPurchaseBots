@@ -62,5 +62,36 @@
         "label": "Banned text",
         "tooltip": "The banned message.",
         "group": "Contains"
+    },
+    "PublishToDiscord": {
+        "type": "dropdown",
+        "label": "Publish to Discord",
+        "value": "No",
+        "tooltip": "If and where to publish the name of the banned user.",
+        "items": [
+          "No",
+          "Bot Channel",
+          "DM to User"
+        ],
+        "group": "Publish to Discord"
+    },
+    "PublishToDiscordUsername": {
+        "type": "textbox",
+        "value": "",
+        "label": "Publish to Discord username",
+        "tooltip": "The user which recieves the username of the banned user.",
+        "group": "Publish to Discord"
+    },
+    "PublishToDiscordFormat": {
+        "type": "dropdown",
+        "label": "Publish to Discord format",
+        "value": "Just the username",
+        "tooltip": "If and where to publish the name of the banned user.",
+        "items": [
+          "Just the username",
+          "Username and reason",
+          "Format as Twitch ban command"
+        ],
+        "group": "Publish to Discord"
     }
   }
