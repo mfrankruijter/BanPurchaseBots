@@ -1,24 +1,34 @@
-import sys, os, json, re
+import sys, os, json, re, io
 sys.path.append(os.path.dirname(__file__))
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 
 from unidecode import unidecode
-from Settings_Module import MySettings
+from Settings_Module import BanPurchaseBotsSettings
 
 ScriptName = "BanPurchaseBots"
 Website = "https://github.com/mfrankruijter/BanPurchaseBots"
 Description = "Bans those annoying bots that want you to purchase followers and viewers."
 Creator = "Marcel Frankruijter"
-Version = "1.0.0"
+Version = "1.2.0"
 
 SettingsFile = ""
-ScriptSettings = MySettings()
+ScriptSettings = BanPurchaseBotsSettings()
 
 def Init():
     global SettingsFile
     SettingsFile = os.path.join(os.path.dirname(__file__), "settings.json")
     global ScriptSettings
-    ScriptSettings = MySettings(SettingsFile)
+    ScriptSettings = BanPurchaseBotsSettings(SettingsFile)
+    if ScriptSettings.BanReadMethod == 'Read from file':
+        if os.path.exists(ScriptSettings.BannedLinesFile) != True:
+            Parent.Log("AntiSpamBot", "Banned lines file does not exist!")
+            return
+        fileStream = io.open(ScriptSettings.BannedLinesFile, 'r')
+        ScriptSettings.BannedLineContains = []
+        for key in fileStream.read().splitlines():
+            Parent.Log("Test", re.sub(r'[^A-z 0-9]', '', unidecode(key).replace('[?]', '')).lower())
+            ScriptSettings.BannedLineContains.append(re.sub(r'[^A-z 0-9]', '', unidecode(key).replace('[?]', '')).lower())
+        fileStream.close()
     return
 
 def Execute(data):
@@ -26,13 +36,11 @@ def Execute(data):
         return
 
     originalMessage = data.Message
-    message = unidecode(data.Message).replace('[?]', '')
-    if originalMessage != message:
-        message = message.lower()
-        if isBannedMessage(message):
-            Parent.Log("AntiSpamBot", "Banning user: \"" + data.UserName + "\" for message \"" + message + "\"")
-            Parent.SendStreamMessage("/ban " + data.UserName)
-            sendToDiscord(data.UserName, message)
+    message = re.sub(r'[^A-z 0-9]', '', unidecode(data.Message).replace('[?]', '')).lower()
+    if isBannedMessage(message):
+        Parent.Log("AntiSpamBot", "Banning user: \"" + data.UserName + "\" for message \"" + message + "\"")
+        #Parent.SendStreamMessage("/ban " + data.UserName)
+        sendToDiscord(data.UserName, message)
     return
 
 def Tick():

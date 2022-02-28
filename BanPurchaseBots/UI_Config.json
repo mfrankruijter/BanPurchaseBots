@@ -1,5 +1,35 @@
 {
     "output_file": "settings.json",
+    "BanReadMethod": {
+        "type": "dropdown",
+        "label": "Ban read method",
+        "value": "Read from settings",
+        "tooltip": "In which way the banned lines are stored.",
+        "items": [
+          "Read from settings",
+          "Read from file"
+        ],
+        "group": "Main"
+    },
+    "BannedLinesFile": {
+        "type": "textbox",
+        "value": "C:\\Users\\Default\\Documents\\BannedLinesFile.txt",
+        "label": "Path to file which contain the banned lines",
+        "tooltip": "The file should contain strings separated by a new line.",
+        "group": "Main"
+    },
+    "PublishToDiscord": {
+        "type": "dropdown",
+        "label": "Publish to Discord (see \"Publish to Discord\" settings tab below)",
+        "value": "No",
+        "tooltip": "If and where to publish the name of the banned user.",
+        "items": [
+          "No",
+          "Bot Channel",
+          "DM to User"
+        ],
+        "group": "Main"
+    },
     "BannedLineContains1": {
         "type": "textbox",
         "value": "wanna become famous? buy followers, primes and viewers on",
@@ -62,18 +92,6 @@
         "label": "Banned text",
         "tooltip": "The banned message.",
         "group": "Contains"
-    },
-    "PublishToDiscord": {
-        "type": "dropdown",
-        "label": "Publish to Discord",
-        "value": "No",
-        "tooltip": "If and where to publish the name of the banned user.",
-        "items": [
-          "No",
-          "Bot Channel",
-          "DM to User"
-        ],
-        "group": "Publish to Discord"
     },
     "PublishToDiscordUsername": {
         "type": "textbox",

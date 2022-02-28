@@ -2,7 +2,7 @@ import os
 import codecs
 import json
 
-class MySettings(object):
+class BanPurchaseBotsSettings(object):
 	def __init__(self, settingsfile=None):
 		try:
 			with codecs.open(settingsfile, encoding="utf-8-sig", mode="r") as f:
@@ -28,6 +28,7 @@ class MySettings(object):
 			self.BannedLineContains7 = ""
 			self.BannedLineContains8 = ""
 			self.BannedLineContains9 = ""
+			self.BanReadMethod = "Read from settings"
 			self.PublishToDiscord = "No"
 			self.PublishToDiscordUsername = ""
 			self.PublishToDiscordFormat = "Just the username"
