@@ -39,7 +39,7 @@ def Execute(data):
     message = re.sub(r'[^A-z 0-9]', '', unidecode(data.Message).replace('[?]', '')).lower()
     if isBannedMessage(message):
         Parent.Log("AntiSpamBot", "Banning user: \"" + data.UserName + "\" for message \"" + message + "\"")
-        #Parent.SendStreamMessage("/ban " + data.UserName)
+        Parent.SendStreamMessage("/ban " + data.UserName)
         sendToDiscord(data.UserName, message)
     return
 
